@@ -1,0 +1,19 @@
+#gmap {
+    position:fixed;
+    left:0;
+    bottom: 0;
+    height: 90vh;
+    width: 100vw;
+    
+}
+nav{
+    height: 10vh;
+    background-color: darkslategray;
+}
+
+.profile-img{
+    border-radius: 50%;
+}
+html{
+    margin-bottom:0;
+}

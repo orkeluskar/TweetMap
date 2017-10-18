@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Tweet Map</title>
+    <!-- Compiled and minified CSS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link rel="stylesheet" href="static/css/style.css">
+     
+</head>
+<body>
+    <nav>
+        <div class="nav-wrapper">
+          <form>
+            <div class="row">
+              <div class="input-field col s4 m4">
+                  <select id="keyword" onchange="getdata()" class="icons">
+
+                    <option value="trump" class="circle" selected>Trump</option>
+                    <option value="NLCS" class="circle">NLCS</option>
+                    <option value="rain" class="circle">Rain</option>
+                    <option value="mumbai" class="circle">Mumbai</option>
+                    <option value="music" class="circle">music</option>
+                    <option value="dota" class="circle">DotA</option>
+                    <option value="eminem" class="circle">Eminem</option>
+                    <option value="cricket" class="circle">Cricket</option>
+                    <option value="football" class="circle">Football</option>
+                    <option value="httr" class="circle">HTTR</option>
+                  </select>
+                  
+              </div>
+              <div class="input-field col s2 m2">
+                  <a class="btn tooltipped" data-position="bottom" data-delay="50" data-tooltip="move the slider to see more or less tweets">Help?</a>
+              </div>
+                
+              <div class="input-field col s6 m6">
+                  <p class="range-field">
+                    <input onchange="getdata()" type="range" id="test5" value="50" min="10" max="1000" />
+                  </p>
+              </div>
+
+            </div> 
+          </form>
+        </div>
+    </nav>
+        
+    <div id="gmap"></div>
+
+</body>
+    <script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBNZ4RAUdaTNpXRHNv2FgNBmJq9AdJ5tlA&callback=initMap">
+    </script>
+    <script src="static/js/script.js"></script>
+    
+    <script src="https://code.jquery.com/jquery-3.2.1.js"
+    integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE="
+    crossorigin="anonymous"></script>
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
+
+    <script>
+      getdata();
+
+      $(document).ready(function() {
+        $('select').material_select();
+        $('.tooltipped').tooltip({delay: 50});
+      });
+    </script>
+</html>
