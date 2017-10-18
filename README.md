@@ -7,12 +7,34 @@
 
 
 ## Quick start?
-```
+
 1. npm install
 2. Get your API keys from [Twitter Apps](https://apps.twitter.com/)
 3. Deploy your ElasticSearch on AWS
-4. fill in the logstash config files
-```
+4. Fill in the logstash config files
+5. Run logstash using:
+   - `.~path/to/logstash -f ~path/to/twitter.conf` 
+   - Now tweets should be streaming onto elasticsearch using this plugin
+6. add a config.js into the directory same as index.js, with following data:
+   - ```
+    var config = {
+        "esURI": "elasticSearch-cluster-endpoint",
+        "esIndex": "twitter",
+        "geoAPI": "https://maps.googleapis.com/maps/api/geocode/json",
+        "geoCodeKey": ""
+    };
+
+    module.exports = config;
+    ```
+    - Above config file abstracts the sensitive data and API keys
+    - (geoCodeKey)[https://developers.google.com/maps/documentation/geocoding/intro] can be found here
+    - geoCode API helps to get latitude, longitude based on textual location 
+    - Request: `https://maps.googleapis.com/maps/api/geocode/json?address=New+York,NY&key=[YourKey]`
+    - Response: geoJSON response object
+7. Run it by `node index.js`
+8. If running elsewhere, say EC2. Rewrite the getURLs in static/script.js,
+   - from: `http://localhost:[port]/`
+   - to: `http://[EC2-public-ip]:[port]/`
 
 
 ## Logstash config
