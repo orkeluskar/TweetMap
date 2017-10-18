@@ -13,7 +13,6 @@ function initMap() {
       center: uluru
     });
 
-
     for (i in locat){
         let temp = document.createElement('div');
         temp.innerHTML = result[i];
@@ -23,19 +22,14 @@ function initMap() {
             position: locat[i],
             maxWidth: 300
         });
-        
         let marker = new google.maps.Marker({
             position: locat[i],
             map: map,
           });
-        //console.log(locat[i]);
-
         marker.addListener('click', function() {
             infowindow.open(map, marker);
           });
-        
     }
-
 }
 
 //get coordinates from the location
@@ -52,7 +46,6 @@ function loadDoc(url, cFunction, markup) {
     xhttp.send();
 }
 
-
 function myFunction(xhttp, markup) {
     if (xhttp.responseText != null && JSON.parse(xhttp.responseText).results[0] != undefined){
         var res  = JSON.parse(xhttp.responseText);
@@ -67,13 +60,10 @@ function myFunction(xhttp, markup) {
 }
 
 function getcoordinates(address, markup){
-    var mapAPIRequest = 'https://maps.googleapis.com/maps/api/geocode/json?address=' + address + '&key=AIzaSyDlHKltld8B7MCTCFByTAkjzQGpkiKwjaE';
     var uri = 'http://localhost:8080/geoloc?location=' + address;
     // routing this to my async call
     loadDoc(uri, myFunction, markup); 
 }
-
-
 
 function getdata(){
     const keyword = document.getElementById('keyword').value;
@@ -111,12 +101,10 @@ function displaydata(keyword, count){
                         + '</div>'
                     + '</div>';
             if (obj[tweet]._source.user.location!=null && obj[tweet]._source.user.location!=undefined){
-                //console.log("1");
                 getcoordinates(obj[tweet]._source.user.location, res);
             }            
         }
 
-        
     }).then( () => {return setTimeout(initMap, 4000);} )
     .catch(function(error) { console.log(error); });
 }
