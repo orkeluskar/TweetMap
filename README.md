@@ -16,16 +16,17 @@
    - `.~path/to/logstash -f ~path/to/twitter.conf` 
    - Now tweets should be streaming onto elasticsearch using this plugin
 6. add a config.js into the directory same as index.js, with following data:
-   - ```
-    var config = {
-        "esURI": "elasticSearch-cluster-endpoint",
-        "esIndex": "twitter",
-        "geoAPI": "https://maps.googleapis.com/maps/api/geocode/json",
-        "geoCodeKey": ""
-    };
+   - 
+        ```
+        var config = {
+            "esURI": "elasticSearch-cluster-endpoint",
+            "esIndex": "twitter",
+            "geoAPI": "https://maps.googleapis.com/maps/api/geocode/json",
+            "geoCodeKey": ""
+        };
 
-    module.exports = config;
-    ```
+        module.exports = config;
+        ```
     - Above config file abstracts the sensitive data and API keys
     - (geoCodeKey)[https://developers.google.com/maps/documentation/geocoding/intro] can be found here
     - geoCode API helps to get latitude, longitude based on textual location 
