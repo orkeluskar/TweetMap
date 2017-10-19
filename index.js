@@ -1,7 +1,7 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const app = express();
-const port = 8080;
+const port = process.env.PORT || 3000;
 const request = require('request');
 
 // This mimics isomorphic fetch request in javascript
