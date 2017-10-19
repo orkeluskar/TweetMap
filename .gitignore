@@ -5,6 +5,9 @@
 node_modules/*
 node_modules
 
+#node logs
+*.log
+
 #config file
 config.js
 
