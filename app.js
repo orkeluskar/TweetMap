@@ -45,7 +45,7 @@ app.get('/geoloc', function(req, res, next) {
                     + location
                     + '&key='
                     + config.geoCodeKey;
-    console.log(geoReq);
+    //console.log(geoReq);
     request({
       uri: geoReq
     }).pipe(res);
