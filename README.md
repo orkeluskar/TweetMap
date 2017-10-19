@@ -7,7 +7,7 @@
 
 
 ## Sample System Architecture
-![System Architecture hosted on AWS](system_architecture.svg?raw=true "System Architecture")
+![System Architecture hosted on AWS](system_architecture.png?raw=true "System Architecture")
 
 
 ## Quick start?
