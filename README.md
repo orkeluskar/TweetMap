@@ -6,6 +6,10 @@
 3. ElasticSearch - as ouput to logstash and input for the app
 
 
+## Sample System Architecture
+![System Architecture hosted on AWS](system_architecture.svg?raw=true "System Architecture")
+
+
 ## Quick start?
 
 1. npm install

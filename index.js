@@ -21,6 +21,7 @@ app.use(express.static('./'));
 
 // retrieves tweets and pipes 'em to front-end
 app.get('/tweets', function(req, res, next) {
+    
     //console.log(req.query.query);
     "use strict";
     let query = req.query.query;
