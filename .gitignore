@@ -7,3 +7,12 @@ node_modules
 
 #config file
 config.js
+
+#Elastic-beanstalk config
+.elasticbeanstalk/
+.ebextensions/
+
+# Elastic Beanstalk Files
+.elasticbeanstalk/*
+!.elasticbeanstalk/*.cfg.yml
+!.elasticbeanstalk/*.global.yml

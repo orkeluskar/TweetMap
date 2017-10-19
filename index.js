@@ -16,9 +16,6 @@ app.use(bodyParser.json());
 // Importing my configuration file
 const config = require('./config');
 
-//serve static files using express
-app.use(express.static('./'));
-
 // retrieves tweets and pipes 'em to front-end
 app.get('/tweets', function(req, res, next) {
     
