@@ -4,7 +4,7 @@
   "description": "Tweet mapping webApp that pulls tweets via Twitter's steam API using logstash and outputs that to the elasticsearch for storage/indexing",
   "main": "index.js",
   "scripts": {
-    "start": "node main.js"
+    "start": "node index.js"
   },
   "author": "Omkar R Keluskar",
   "license": "ISC",
