@@ -60,7 +60,7 @@ function myFunction(xhttp, markup) {
 }
 
 function getcoordinates(address, markup){
-    var uri = 'http://18.216.48.10/geoloc?location=' + address;
+    var uri = '[app-server-url]/geoloc?location=' + address;
     // routing this to my async call
     loadDoc(uri, myFunction, markup); 
 }
@@ -72,7 +72,7 @@ function getdata(){
 }
 
 function displaydata(keyword, count){
-    var myRequest = 'http://18.216.48.10/tweets?query=' + keyword + '&size=' + count;
+    var myRequest = '[app-server-url]/tweets?query=' + keyword + '&size=' + count;
     fetch(myRequest).then(function(response) {    
         return response.json();
     })
