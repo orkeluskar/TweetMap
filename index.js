@@ -51,7 +51,4 @@ app.get('/geoloc', function(req, res, next) {
     }).pipe(res);
 });
 
-app.listen(port, function(){
-    console.log("Listening on " + port);
-});
-
+app.listen(port);
