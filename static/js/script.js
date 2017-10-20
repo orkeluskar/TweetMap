@@ -60,7 +60,7 @@ function myFunction(xhttp, markup) {
 }
 
 function getcoordinates(address, markup){
-    var uri = 'http://node-express-env.ivfdxmiu5i.us-west-2.elasticbeanstalk.com/geoloc?location=' + address;
+    var uri = 'http://18.216.48.10/geoloc?location=' + address;
     // routing this to my async call
     loadDoc(uri, myFunction, markup); 
 }
@@ -72,7 +72,7 @@ function getdata(){
 }
 
 function displaydata(keyword, count){
-    var myRequest = 'http://node-express-env.ivfdxmiu5i.us-west-2.elasticbeanstalk.com/tweets?query=' + keyword + '&size=' + count;
+    var myRequest = 'http://18.216.48.10/tweets?query=' + keyword + '&size=' + count;
     fetch(myRequest).then(function(response) {    
         return response.json();
     })
