@@ -1,6 +1,7 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const app = express();
+// Elastic beanstalk environment variables
 const port = process.env.PORT || 8081;
 const request = require('request');
 
