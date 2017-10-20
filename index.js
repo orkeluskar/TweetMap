@@ -1,7 +1,7 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const app = express();
-const port = process.env.PORT;
+const port = process.env.PORT || 8081;
 const request = require('request');
 
 // This mimics isomorphic fetch request in javascript
@@ -11,7 +11,7 @@ app.use(express.static('./'));
 app.use(bodyParser.urlencoded({ extended: false }));
 
 //serve static files using express
-app.use(express.static('/static'));
+app.use(express.static('static/'));
 
 // parse application/json
 app.use(bodyParser.json());
