@@ -10,6 +10,9 @@ app.use(express.static('./'));
 // parse application/x-www-form-urlencoded
 app.use(bodyParser.urlencoded({ extended: false }));
 
+//serve static files using express
+app.use(express.static('/static'));
+
 // parse application/json
 app.use(bodyParser.json());
 
