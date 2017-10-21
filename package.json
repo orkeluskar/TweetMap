@@ -11,8 +11,10 @@
   "dependencies": {
     "body-parser": "^1.18.2",
     "child_process": "^1.0.2",
+    "elasticsearch": "^13.3.1",
     "express": "^4.16.2",
     "node-fetch": "^1.7.3",
-    "request": "^2.83.0"
+    "request": "^2.83.0",
+    "twitter": "^1.7.1"
   }
 }

@@ -1,9 +1,11 @@
 # TweetMap
 
 ## This app makes use of:
-1. Logstash - as data pipeline to [AWS]ElasticSearch from Twitter
-2. Twitter - as input to logstash
-3. ElasticSearch - as ouput to logstash and input for the app
+1. Node 
+   - data pipeline to [AWS] ElasticSearch from Twitter
+   - As app server on [AWS] Elastic Beanstalk
+2. Twitter Streaming node module
+3. ElasticSearch - data store
 
 
 ## Sample System Architecture
@@ -14,11 +16,43 @@
 
 1. npm install
 2. Get your API keys from [Twitter Apps](https://apps.twitter.com/)
-3. Deploy your ElasticSearch on AWS
-4. Fill in the logstash config files
-5. Run logstash using:
-   - `.~path/to/logstash -f ~path/to/twitter.conf` 
-   - Now tweets should be streaming onto elasticsearch using this plugin
+3. Deploy an ElasticSearch on AWS
+4. Create an `ES_Conn.js` file to connect to elasticSearch cluster created in step3
+   - Fill in the URL as per your cluster's address 
+      ```
+      var elasticsearch = require('elasticsearch');
+
+      var client = new elasticsearch.Client( {  
+      hosts: [
+        '[ElasticSearch-cluster-address:80]'
+      ]
+      });
+
+      module.exports = client;  
+      ```
+   - Create an `twitter_conn.js` for twitter API keys
+     ```
+      var Twitter = require('twitter');
+
+      var client = new Twitter({
+
+          consumer_key: "",
+          consumer_secret: "",
+          access_token_key: "",
+          access_token_secret: ""
+
+      });
+
+      module.exports = client;
+     ```
+5. Create an ElasticSearch index, say 'tweets' in this case, then:
+   - I've chose these keywords for my example in the `datapipe.js`:
+      ```
+      'trump, dota, mumbai, httr, nlcs, nfl, eminem, rain, cricket, vodka'
+      ```
+      You can chose any keywords of your choice in `datapipe.js`
+   - Run datapipe.js on a terminal or EC2 instance
+
 6. add a config.js into the directory same as index.js, with following data:
    - 
         ```
@@ -42,7 +76,8 @@
    - to: `http://[EC2-public-ip]:[port]/`
 
 
-## Logstash config
+# Ignore this if using node datapipe
+## Logstash config 
 `twitter.conf:`
 ```
 input {
@@ -134,22 +169,17 @@ output {
 
 ## Sample ElasticSearch querying
 ```
-Request:
-https://cluster-endpoint/twitter/_search?q=[keyword]&size=[n]
+1. Request:
+   https://cluster-endpoint/twitter/_search?q=[keyword]&size=[n]
 
-Response:
-JSON formatted full tweet data
+   Response:
+   JSON formatted full tweet data
 
+2. Request:
+   https://cluster-endpoint/twitter/_search?q=[keyword]&size=[n]&sort=id
 
-Additional filtering:
-https://cluster-endpoint/twitter/_search?q=[keyword]&size=[n]&_source=text,user.location,user.screen_name,id_str,@timestamp,user.profile_image_url_https
+   Response:
+   JSON formatted tweet data with sort on id
 
-Above query just returns us with:
-1. tweet text
-2. user location, if any
-3. user screen name
-4. string id, to tag user
-5. timestamp of the tweet
-6. profile Image URL
 ```
 

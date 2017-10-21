@@ -18,3 +18,7 @@ config.js
 .elasticbeanstalk/*
 !.elasticbeanstalk/*.cfg.yml
 !.elasticbeanstalk/*.global.yml
+
+#temp files for eb deploy
+ES_conn.js
+twitter_conn.js
