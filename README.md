@@ -76,7 +76,7 @@
    - to: `http://[EC2-public-ip]:[port]/`
 
 
-#Ignore this if using node datapipe
+# Ignore this if using node datapipe
 ## Logstash config 
 `twitter.conf:`
 ```
