@@ -60,11 +60,12 @@
     crossorigin="anonymous"></script>
     <!-- Compiled and minified JavaScript -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
-
     <script>
-      getdata();
-
       $(document).ready(function() {
+        Materialize.toast('Select a keyword from top left dropdown', 3000);
+        Materialize.toast('markers might get updated if newer tweets are received!', 7000);
+        
+
         $('select').material_select();
         $('.tooltipped').tooltip({delay: 50});
       });

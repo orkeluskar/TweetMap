@@ -23,7 +23,7 @@ const config = require('./config');
 // retrieves tweets and pipes 'em to front-end
 app.get('/tweets', function(req, res, next) {
     
-    //console.log(req.query.query);
+    //console.log(req.query.query, req);
     "use strict";
     let query = req.query.query;
     let size = req.query.size;
@@ -32,7 +32,7 @@ app.get('/tweets', function(req, res, next) {
                     + '/_search'
                     + '?q=' + query 
                     + '&size=' + size 
-                    + '&_source=text,user.location,user.screen_name,id_str,@timestamp,user.profile_image_url_https';
+                    + '&sort=id';
     
     request({
       uri: ESreq

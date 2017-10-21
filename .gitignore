@@ -9,7 +9,7 @@ node_modules
 *.log
 
 #config file
-config.js
+
 
 #Elastic-beanstalk config
 .elasticbeanstalk/
@@ -18,3 +18,8 @@ config.js
 .elasticbeanstalk/*
 !.elasticbeanstalk/*.cfg.yml
 !.elasticbeanstalk/*.global.yml
+
+#temp files for eb deploy
+ES_conn.js
+datapipe.js
+twitter_conn.js
