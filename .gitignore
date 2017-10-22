@@ -9,7 +9,7 @@ node_modules
 *.log
 
 #config file
-
+config.js
 
 #Elastic-beanstalk config
 .elasticbeanstalk/
