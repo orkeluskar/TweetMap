@@ -68,7 +68,7 @@ function myFunction(xhttp, markup) {
 }
 
 function getcoordinates(address, markup){
-    var uri = 'http://18.216.48.10:8081/geoloc?location=' + address;
+    var uri = 'http://[app-server-url]/geoloc?location=' + address;
     // routing this to my async call
     loadDoc(uri, myFunction, markup); 
 }
@@ -80,7 +80,7 @@ function getdata(){
 }
 
 function displaydata(keyword, count){
-    var myRequest = 'http://18.216.48.10:8081/tweets?query=' + keyword + '&size=' + count;
+    var myRequest = 'http://[app-server-url]/tweets?query=' + keyword + '&size=' + count;
     fetch(myRequest).then(function(response) {    
         return response.json();
     })
@@ -95,7 +95,7 @@ function displaydata(keyword, count){
 
             res =  '<div class="row card-panel">'    
                         + '<div class="col s3 card-image">'
-                            + '<img class="profile-img" src="' + obj[tweet].profile_img_url + '">'
+                            + '<img class="profile-img" src="' + obj[tweet]._source.profile_img_url + '">'
                         + '</div>'
                         + '<div class="s9">'
                             + '<p>'
@@ -129,7 +129,7 @@ function newdata(){
     let keyword = document.getElementById('keyword').value;
     let count = document.getElementById('test5').value;
     console.log(keyword, count);
-    var myRequest = 'http://18.216.48.10:8081/tweets?query=' + keyword + '&size=' + count;
+    var myRequest = 'http://[app-server-url]/tweets?query=' + keyword + '&size=' + count;
     fetch(myRequest).then(function(response) {    
         return response.json();
     })
